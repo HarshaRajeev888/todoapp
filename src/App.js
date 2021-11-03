@@ -1,25 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { Header } from './components/Header';
+import { TodoForm } from './components/TodoForm';
+import { Todos } from './components/Todos';
+
+
+
 
 function App() {
+
+  const [todo, setTodo] = useState('')
+  const [todos, setTodos] = useState([])
+  const [error, setError] = useState(false)
+  const [show, setShow] = useState(false)
+  const [id, setId] = useState()
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    if (todo) {
+
+      setTodos([...todos, { id: Date.now(), text: todo, completed: false }])
+      setTodo('')
+      setError(false)
+    }
+    else {
+      setError(true)
+    }
+
+
+  }
+  const deleteTask = ({ id }) => {
+    handleClose()
+    setTodos(
+      todos.filter((obj) => obj.id !== id)
+    )
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <Header />
+      <TodoForm handleAdd={handleAdd} error={error} todo={todo}
+        setTodo={setTodo} />
+
+      <Todos todos={todos} deleteTask={deleteTask} handleClose={handleClose} handleShow={handleShow}
+        id={id} setId={setId} show={show} />
     </div>
-  );
+  )
 }
 
 export default App;
