@@ -1,26 +1,26 @@
 import React from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useState } from 'react'
 
-export const Todos = ({ todos, deleteTask, handleClose, handleShow, id, setId, show }) => {
+export const Todos = ({ todos,deleteTask, handleClose, handleShow,show }) => {
+    
+    const [id, setId] = useState()
+
+    
     return (
-        <div>
 
             <div>
                 <ol>
                     {todos.map((obj) => {
                         return (
-                            <li key={obj.id}>
-                                {' '}
-                                {obj.text}{' '}
+                            <li key={obj.id}>{' '}{obj.text}{' '}
                                 <>
-                                    <Button
-                                        variant="primary"
-                                        onClick={() => {
+                                    <Button variant="primary"  onClick={() => {
                                             handleShow();
                                             setId(obj);
                                         }}
-                                    >
+                                        >
                                         Delete
                                     </Button>
                                 </>
@@ -31,7 +31,7 @@ export const Todos = ({ todos, deleteTask, handleClose, handleShow, id, setId, s
                         <Modal.Header closeButton>
                             <Modal.Title>DELETE</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>ARE YOU SURE TO DELETE!?</Modal.Body>
+                        <Modal.Body>Are u sure to Delete!? </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
@@ -44,7 +44,7 @@ export const Todos = ({ todos, deleteTask, handleClose, handleShow, id, setId, s
                 </ol>
             </div>
 
-        </div>
+        
     )
 }
 
