@@ -1,15 +1,9 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
-import "./Footer.css"
+import "../Footer/Footer.css"
 
 function Footer() {
     return (
-        //     <div>
-        //          <Card className="bg-dark text-white">
-        //     <Card.Body><i><center><b>Footer.......................................!!!</b></center></i></Card.Body>
-        //   </Card>
-
-        //     </div>
+       
 
         <>
             <div className="main-footer">

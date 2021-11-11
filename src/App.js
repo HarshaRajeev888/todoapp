@@ -3,8 +3,8 @@ import { Header } from './components/Header';
 import { TodoForm } from './components/TodoForm';
 import { Todos } from './components/Todos';
 import { useApp } from './CustomHook/useApp';
-import Footer from './NewProject/Footer';
-import MainNavigation from './NewProject/MainNavigation';
+import Footer from './NewProject/Footer/Footer';
+import MainNavigation from './NewProject/Navigation/MainNavigation';
 
 function App() {
   // const { handleAdd, deleteTask, error, handleClose, handleShow, todo, setTodo, show, todos } = useApp()
