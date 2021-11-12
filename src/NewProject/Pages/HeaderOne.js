@@ -1,17 +1,45 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Navbar, Container, Carousel } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'react-router-dom'
-function HeaderOne(){
-  const [index, setIndex] = useState(0);
 
+
+function HeaderOne() {
+  const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
-  };
+  }
+
+  const CAROUSEL_ITEMS = [
+    {
+      imageSrc:
+        "https://www.bmw.in/content/dam/bmw/marketIN/bmw_in/Home/Teaser/Home_Header_Banner_Desktop_1680x756_03.jpg.asset.1624515416694.jpg",
+      alt: "aaaa",
+      title: "aaaa",
+      content: "asdfghjkl"
+
+    },
+    {
+      imageSrc:
+        "https://static.tcimg.net/vehicles/primary/8170a8e796ecf9e7/2022-BMW-8_Series-white-full_color-driver_side_front_quarter.png",
+      alt: "bbbb",
+      title: "bbbb",
+      content: "qwertyuiop"
 
 
-  return (
+    },
+    {
+      imageSrc: "https://www.bmw-nigeria.com/content/dam/bmw/marketZA/bmw-nigeria_com/testpictures/xxl_bmw.jpg",
+      alt: "cccc",
+      title: "cccc",
+      content: "azxcvbnm"
+    },
+
+  ];
+return (
+
     <div>
+
       <div>
         <Navbar fixed="top" />
         <Navbar bg="dark" variant="dark">
@@ -22,52 +50,31 @@ function HeaderOne(){
           </Container>
         </Navbar>
       </div>
-<div>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHCKIMPmHYJoKmUfIAGkVXeLQf9NPYy97NQ&usqp=CAU" 
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHCKIMPmHYJoKmUfIAGkVXeLQf9NPYy97NQ&usqp=CAU"
-          alt="Second slide"
-        />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHCKIMPmHYJoKmUfIAGkVXeLQf9NPYy97NQ&usqp=CAU"
-          alt="Third slide"
-        />
 
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+      <div>
+
+        <Carousel className="carousal" activeIndex={index} onSelect={handleSelect}>
+          {CAROUSEL_ITEMS.map((items) => {
+            return (
+
+              <Carousel.Item key={items.title}>
+                <img className="d-block w-100" src={items.imageSrc} alt={items.alt} />
+
+                <Carousel.Caption>
+                  {items.title}
+                  {items.content}
+
+                </Carousel.Caption>
+              </Carousel.Item>
+            )
+          })}
+        </Carousel>
+      </div>
+
+
     </div>
-    </div>
+
   );
-  }
-
-
-
-      
-  export default HeaderOne
+}
+export default HeaderOne

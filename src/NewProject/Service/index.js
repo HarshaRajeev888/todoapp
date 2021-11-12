@@ -1,7 +1,5 @@
 import Credintial from '../Credintials/Credintial.json'
-
-
-export const isLogin = () => {
+ export const isLogin = () => {
     if (localStorage.getItem('access')) {
         return true
     }

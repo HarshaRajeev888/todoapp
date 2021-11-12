@@ -5,13 +5,15 @@ import "../Navigation/SideNavigation.css"
 
 function SideNavigation() {
     const navigate = useNavigate()
+
+    
     return (
         <div>
             <Nav className="side-nav">
                 
                
 
-                <Nav.Link onClick = {()=> navigate('/First')}>Path One</Nav.Link>
+                 <Nav.Link onClick = {()=> navigate('/First')}>Path One</Nav.Link>
                 <hr />
                 <Nav.Link onClick = {()=> navigate('/Second')}>Path Two</Nav.Link>
                 <hr />
@@ -19,7 +21,8 @@ function SideNavigation() {
                 <hr />
                 <Nav.Link onClick = {()=> navigate('/Fourth')}>Path Four</Nav.Link>
                 <hr />
-                <Nav.Link onClick = {()=> navigate('/Fifth')}>Path Five</Nav.Link>
+                <Nav.Link onClick = {()=> navigate('/Fifth')}>Path Five</Nav.Link> 
+               
 
             </Nav>
             

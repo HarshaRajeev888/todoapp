@@ -1,7 +1,7 @@
 import React from 'react'
 import HomePage from '../../Header/HomePage'
 import SideNavigation from '../../Navigation/SideNavigation'
-import {Nav,Col, Row} from 'react-bootstrap'
+import {Col, Row} from 'react-bootstrap'
 
 function PageOne() {
     return (
